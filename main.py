@@ -17,7 +17,7 @@ def clearHistory():#function for clearing history
     historyList.clear()#wipes the list clean
     historyListVar.set(historyList)#updates the list to be clear
 
-rollDice = Button(root, text = "Roll the dice!", command = lambda: RollDice())#click to call the dice roller function
+rollDice = Button(root, text = "Roll the dice!", command = RollDice)#click to call the dice roller function
 rollDice.pack()
 
 clearHistory = Button(root, text = "Clear the history!", command = clearHistory)#clears the history
@@ -28,7 +28,7 @@ historyLabel = Label(root, text = "History:").pack()
 
 historyList = []#declares history list, empty
 historyListVar = StringVar(value = historyList)#declares the variable that actually goes in the box
-rollHistory = Listbox(root, yscrollcommand = true, listvariable = historyListVar).pack()#creates the history box
+rollHistory = Listbox(root, listvariable = historyListVar).pack()#creates the history box
 
 root.mainloop()#DO NOT REMOVE
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
