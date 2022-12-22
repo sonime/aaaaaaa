@@ -2,21 +2,28 @@ from tkinter import *
 import random
 
 root = Tk()
+root.geometry("800x600")
 
-
-selectedDiceSize = IntVar()
-selectedDiceSize.set(1)
-diceSizeMenu = OptionMenu(root, selectedDiceSize, 1, 2, 3, 4, 5, 6)
-diceSizeMenu.pack()
+diceSizeEntry = Entry(root, width = 20)
+diceSizeEntry.pack()
 
 def RollDice():
-    diceSize = selectedDiceSize.get()
-    rollResult = random.randint(1,diceSize)
-    resultText = Label(root, text = rollResult)
-    resultText.pack()
+    diceSize = int(diceSizeEntry.get())
+    rollResult = str(random.randint(1,diceSize))
+    historyList.append(rollResult)
+    historyListVar.set(historyList)
 
-poop = Button(root, text = "poop", command = lambda: RollDice())
-poop.pack()
+rollDice = Button(root, text = "Roll the dice!", command = lambda: RollDice())
+rollDice.pack()
+
+clearHistory = Button(root, text = "Clear the history!",)
+clearHistory.pack()
+
+historyLabel = Label(root, text = "History:").pack()
+
+historyList = []
+historyListVar = StringVar(value=historyList)
+rollHistory = Listbox(root, listvariable = historyListVar).pack()
 
 root.mainloop()
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
