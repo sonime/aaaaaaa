@@ -1,20 +1,15 @@
-# This is a sample Python script.
+from tkinter import *
+import random
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+root = Tk()
+def RollDice():
+    global rollResult
+    rollResult = random.randint(1,6)
+    resultText = Label(root, text = rollResult)
+    resultText.pack()
 
+poop = Button(root, text = "poop", command = RollDice)
+poop.pack()
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('sfdasdfdsafsdfsafsae')
-
-from datetime import date
-current_date = date.today()
-print('Today is: ' + str(current_date))
-
+root.mainloop()
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
