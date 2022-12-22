@@ -5,12 +5,12 @@ root = Tk()
 
 
 selectedDiceSize = IntVar()
+selectedDiceSize.set(1)
 diceSizeMenu = OptionMenu(root, selectedDiceSize, 1, 2, 3, 4, 5, 6)
 diceSizeMenu.pack()
 
-global diceSize
-diceSize = selectedDiceSize.get()
 def RollDice():
+    diceSize = selectedDiceSize.get()
     rollResult = random.randint(1,diceSize)
     resultText = Label(root, text = rollResult)
     resultText.pack()
